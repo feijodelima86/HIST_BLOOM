@@ -3,6 +3,7 @@ library(dismo)
 library(MASS)
 library(usdm)
 library(dplyr)
+library(cowplot)
 
 ucfr.data <- read.csv("2_Incremental/LAGDATA_CURRENT.csv")
 
@@ -53,8 +54,6 @@ repeat {
 
 write.csv(VIF.RESULTS, "3_Products/Manuscript_files/TABLES/test1.csv")
 
-
-
 # In this case, all VIFs < 2, so we good. 
 
 # Performing Boosted regression trees.  
@@ -70,6 +69,11 @@ UCFR.SS.tc5.lr002 <- gbm.step(data=ucfr.data,
                            learning.rate = 0.002,
                            bag.fraction = 0.75)
 
+
+plot_2a <- recordPlot()   
+
+plot_2a
+
 # Second one is for binomial bloom/no bloom variable (0 = CHl<100 mg/m2). Tree complexity is set to 6, learning rate was adjusted to 0.001 achieve 10^3 trees. 
 #Bag fraction of 0.75 means that every tree is generated based on 25% of the data and 75% of the data is used as training set. 
 #Results seem best with lower bag fraction. Keeping them as are for now.
@@ -82,6 +86,21 @@ UCFR.BNB.tc4.lr004 <- gbm.step(data=ucfr.data,
                            tree.complexity = 4,
                            learning.rate = 0.001,
                            bag.fraction = 0.75)
+
+plot_2b <- recordPlot()   
+
+plot_2 <- list()
+
+plot_2[[1]]<-plot_2a
+plot_2[[2]]<-NULL
+plot_2[[3]]<-plot_2b
+
+plot_grid(plotlist = plot_2, nrow=1, ncol=3, rel_widths = c(1, 0.25, 1))
+
+png("3_Products/Manuscript_files/FIGURES/Holdout_Dev.png", width = 1544, height = 671, units = "px")
+plot_grid(plotlist = plot_2, nrow=1, ncol=3, rel_widths = c(1, 0.23, 1))
+dev.off()
+
 
 # Predicred vs observed linear regression for standing stocks. 
 
@@ -119,10 +138,6 @@ minmax <- range(BIN_DF$fitted)
 
 curve(predict(fit2, data.frame(fitted=x), type="resp"), minmax[1], minmax[2], add=TRUE)
 
-plot_1b <- recordPlot()   
-
-plot_1b
-
 # Estimating type 1 (No bloom, model thinks it is) and type 2 (Bloom, model thinks it is not) error. 
 
 CHL_DF<-data.frame(UCFR.SS.tc5.lr002$fitted, ucfr.data$Chlorophyll.a)
@@ -139,10 +154,47 @@ table(CHL_DF$name)
 
 # Plotting partial dependencies
 
+plot_3a<-gbm.plot(UCFR.SS.tc5.lr002, write.title = F, nplots = 6, plot.layout= c(2,3),
+#                  x.label = NULL,
+#                  y.label=c("Fitted function", NA, NA, "Fitted function", NA, NA),
+                  las=1,
+                  lwd=2,
+                  box=2,
+                  text.font=2,
+                  cex.lab=2,
+                  cex.axis=1.5,
+                  smooth =F,
+                  rug=F,
+                  y.label = NA
+                  )
 
-plot_3a<-gbm.plot(UCFR.SS.tc5.lr002, write.title = F, nplots = 6, plot.layout= c(2,3), lwd=2, box=2, cex.lab=1.5, cex.axis=1.25, smooth =F, rug=F)
+plot_3a <- recordPlot()   
 
-plot_3b<-gbm.plot(UCFR.BNB.tc4.lr004, write.title = F, nplots = 6, plot.layout= c(2,3), lwd=2, box=2, cex.lab=1.5, cex.axis=1.25, smooth =F, rug=F)
+png("3_Products/Manuscript_files/FIGURES/Part_Dep_SS.png", width = 1154, height = 783, units = "px")
+plot_3a
+dev.off()
+
+
+plot_3b<-gbm.plot(UCFR.BNB.tc4.lr004, write.title = F, nplots = 6, plot.layout= c(2,3),
+                  #                  x.label = NULL,
+                  #                  y.label=c("Fitted function", NA, NA, "Fitted function", NA, NA),
+                  las=1,
+                  lwd=2,
+                  box=2,
+                  text.font=2,
+                  cex.lab=2,
+                  cex.axis=1.5,
+                  smooth =F,
+                  rug=F,
+                  y.label = NA
+)
+
+plot_3b <- recordPlot()   
+
+png("3_Products/Manuscript_files/FIGURES/Part_Dep_BNB.png", width = 1154, height = 783, units = "px")
+plot_3b
+dev.off()
+
 
 # Finding interactions between variables
 
@@ -181,5 +233,24 @@ gbm.perspec(UCFR.BNB.tc4.lr004,4,1, z.range=c(0,1),
             theta = 315,
             phi=45, 
             perspective = T)
+dev.new()
 
+png("3_Products/Manuscript_files/FIGURES/Interaction_Plots.png", width = 1154, height = 783, units = "px")
+
+par(mfrow=c(1,2))
+
+gbm.perspec(UCFR.SS.tc5.lr002,3,2, z.range=c(1.4,2.5),
+            theta = 45,
+            phi=45, 
+            cex.lab = 1.2, font.lab = 2, cex.axis = 1, font.axis= 1,
+            perspective = T,
+            smooth=F)
+
+gbm.perspec(UCFR.BNB.tc4.lr004,3,2, z.range=c(0,1), 
+            theta = 45,
+            phi=45, 
+            cex.lab = 1.2, font.lab = 2, cex.axis = 1, font.axis= 1,
+            perspective = T,
+            smooth=F)
+dev.off()
 

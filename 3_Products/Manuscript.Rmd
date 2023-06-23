@@ -28,9 +28,14 @@ One of the strengths of BRTs is the ease to generate predictive models.
 ## Objectives
 
 Based on the historical datasets, determine the factors predicting algal blooms in the UCFR.
+
 Given that future nutrient mitigations are necessary:
-Estimate how previous nutrient reductions may have influenced the pervasiveness of algal blooms in the UCFR. (Claire?)
-Using climatic forecasts, estimate how algal blooms might respond to a warming climate under different nutrient scenarios. 
+
+ 
+* Given that future nutrient mitigations are necessary:
+    + Estimate how previous nutrient reductions may have influenced the pervasiveness of algal blooms in the UCFR. (Claire?)
+    + Using climatic forecasts, estimate how algal blooms might respond to a warming climate under different nutrient scenarios.
+       
 
 ## Methods
 
@@ -70,9 +75,10 @@ Chlorophyll by site (Log)
 
 ![CAPTION](Manuscript_files/FIGURES/test.png)
 
+
 Variance inflation test. 
 
-```{r print.table,warning=FALSE, message=FALSE, echo=FALSE}
+```{r print.table, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::kable(read.csv("Manuscript_files/TABLES/test1.csv"), "simple")
 ```
 
@@ -80,11 +86,21 @@ knitr::kable(read.csv("Manuscript_files/TABLES/test1.csv"), "simple")
 
 ### Holdout deviance number of trees: How to report?
 
+![CAPTION](Manuscript_files/FIGURES/Holdout_Dev.png)
+
 ### Partial dependency plots. Importance of variables.
+
+![CAPTION](Manuscript_files/FIGURES/Part_Dep_SS.png)
+
+![CAPTION](Manuscript_files/FIGURES/Part_Dep_BNB.png)
 
 ### Fitted Values. Appendix?
 
+
+
 ### Interaction plots?
+
+![CAPTION](Manuscript_files/FIGURES/Interaction_Plots.png)
 
 ## Discussion
 

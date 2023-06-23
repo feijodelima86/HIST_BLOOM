@@ -3,7 +3,7 @@ library(ggplot2)
 
 ucfr.data <- read.csv("2_Incremental/LAGDATA_CURRENT.csv")
 
-# Boxplot of chlorophyll by site
+#### Boxplot of chlorophyll by site ####
 
 ucfr.data$Chlorophyll.a <- log10(ucfr.data$Chlorophyll.a+1)
 
@@ -13,13 +13,10 @@ as.factor(ucfr.data$Site.1)
 
 ucfr.data$Site.1  = factor(ucfr.data$Site.1, levels=c("DL", "GR", "BN", "MS", "BM", "HU", "FH"))
 
-y_expression <- bold(expression(log[10] ~ "CHLa" ~ (mg/m^2)))
-
-
-plot_1 <- recordPlot()   
+y_expression <- expression(log[10] ~ "CHLa" ~ (mg/m^2))
 
 png("3_Products/Manuscript_files/FIGURES/test.png")
-par(mar=c(5,6,4,1)+.1)
+par(mar=c(5,5,5,1)+.1)
 boxplot(Chlorophyll.a ~ Site.1, ucfr.data,                              
         ylab = y_expression,
         text.font=2,
@@ -30,13 +27,6 @@ boxplot(Chlorophyll.a ~ Site.1, ucfr.data,
 box(lwd=2)
 dev.off()
 
-theme_set(theme_bw())
+#### Variance inflation test results for predictor variables ####
 
-p <- ggplot(ucfr.data, aes(x=Site.1, y=Chlorophyll.a)) + 
-  geom_violin() 
-  
-p + stat_summary(fun.y=median, geom="point", size=2, color="black") 
-  + labs=(y=expression(log[10] ~ "CHLa" ~ (mg/m^2))) 
-
-
-Table_1<-knitr::kable(read.csv("Manuscript_files/TABLES/test1.csv"), "simple")
+Table_1<-knitr::kable(read.csv("3_Products/Manuscript_files/TABLES/test1.csv"), "simple")
