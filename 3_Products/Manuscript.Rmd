@@ -7,10 +7,6 @@ output:
     keep_tex: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Tentative title: 
 “Forecasting algal blooms in a montane river under multiple stressors: A boosted regression tree approach.”
 
@@ -66,11 +62,19 @@ Variables derived from hydrograph.
 Q anomaly:
 Days since freshet:
 
-Variables: 
-
 ## Results
 
 ### General patterns of main variables by site. Table. 
+
+Chlorophyll by site (Log)
+
+![CAPTION](Manuscript_files/FIGURES/test.png)
+
+Variance inflation test. 
+
+```{r print.table,warning=FALSE, message=FALSE, echo=FALSE}
+knitr::kable(read.csv("Manuscript_files/TABLES/test1.csv"), "simple")
+```
 
 ### Predicted vs observed. How to report binomial?
 
@@ -79,6 +83,7 @@ Variables:
 ### Partial dependency plots. Importance of variables.
 
 ### Fitted Values. Appendix?
+
 ### Interaction plots?
 
 ## Discussion
@@ -88,20 +93,3 @@ Performance of boosted regression trees.
 Main variables that explained peak biomass.
 
 
-
-
-
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

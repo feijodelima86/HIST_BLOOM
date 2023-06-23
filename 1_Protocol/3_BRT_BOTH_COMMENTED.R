@@ -4,7 +4,7 @@ library(MASS)
 library(usdm)
 library(dplyr)
 
-ucfr.data <- read.csv("2_Incremental/testlagdata_3.csv")
+ucfr.data <- read.csv("2_Incremental/LAGDATA_CURRENT.csv")
 
 #Cheacking to see if dataset was properly imported.
 
@@ -51,7 +51,9 @@ repeat {
   }
 }
 
-VIF.RESULTS
+write.csv(VIF.RESULTS, "3_Products/Manuscript_files/TABLES/test1.csv")
+
+
 
 # In this case, all VIFs < 2, so we good. 
 
@@ -68,8 +70,8 @@ UCFR.SS.tc5.lr002 <- gbm.step(data=ucfr.data,
                            learning.rate = 0.002,
                            bag.fraction = 0.75)
 
-# Second one is for binomial bloom/no bloom variable (0 = CHl<100 mg/m2). Tree complexity is set to 6, learning rate was adjusted to 0.002 achieve 10^3 trees. 
-#Bag fraction of 0.75 means that every tree is generated based on 50% of the data and 50% of the data is used as training set. 
+# Second one is for binomial bloom/no bloom variable (0 = CHl<100 mg/m2). Tree complexity is set to 6, learning rate was adjusted to 0.001 achieve 10^3 trees. 
+#Bag fraction of 0.75 means that every tree is generated based on 25% of the data and 75% of the data is used as training set. 
 #Results seem best with lower bag fraction. Keeping them as are for now.
 
 
@@ -138,9 +140,9 @@ table(CHL_DF$name)
 # Plotting partial dependencies
 
 
-plot_3a<-gbm.plot(UCFR.SS.tc5.lr002, write.title = F, nplots = 6, plot.layout= c(3,3), lwd=2, box=2, cex.lab=1.5, cex.axis=1.25, smooth =F, rug=F)
+plot_3a<-gbm.plot(UCFR.SS.tc5.lr002, write.title = F, nplots = 6, plot.layout= c(2,3), lwd=2, box=2, cex.lab=1.5, cex.axis=1.25, smooth =F, rug=F)
 
-plot_3b<-gbm.plot(UCFR.BNB.tc4.lr004, write.title = F, nplots = 6, plot.layout= c(3,3), lwd=2, box=2, cex.lab=1.5, cex.axis=1.25, smooth =F, rug=F)
+plot_3b<-gbm.plot(UCFR.BNB.tc4.lr004, write.title = F, nplots = 6, plot.layout= c(2,3), lwd=2, box=2, cex.lab=1.5, cex.axis=1.25, smooth =F, rug=F)
 
 # Finding interactions between variables
 
