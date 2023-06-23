@@ -110,16 +110,104 @@
 \begin{document}
 \maketitle
 
-\hypertarget{r-markdown}{%
-\subsection{R Markdown}\label{r-markdown}}
+\hypertarget{tentative-title}{%
+\subsection{Tentative title:}\label{tentative-title}}
 
-This is an R Markdown document. Markdown is a simple formatting syntax
-for authoring HTML, PDF, and MS Word documents. For more details on
-using R Markdown see \url{http://rmarkdown.rstudio.com}.
+``Forecasting algal blooms in a montane river under multiple stressors:
+A boosted regression tree approach.''
 
-When you click the \textbf{Knit} button a document will be generated
-that includes both content as well as the output of any embedded R code
-chunks within the document. You can embed an R code chunk like this:
+\hypertarget{background}{%
+\subsection{Background}\label{background}}
+
+Blooms at the UCFR
+
+Historical monitoring
+
+Historical changes to Nut inputs. Future directions? (Claire)
+
+Potential changes due to climate change. Freshet has been shown to
+influence max growth. Temperature has been shown to influence Cladophora
+metabolism. Timing of freshet, temperature and nutrient availability may
+have an interplay with secondary cyanobacterial blooms.
+
+Nonlinear relationships and thresholds are not easily captured by
+traditional modelling methods, hence Boosted Regression Trees.
+
+One of the strengths of BRTs is the ease to generate predictive models.
+
+\hypertarget{objectives}{%
+\subsection{Objectives}\label{objectives}}
+
+Based on the historical datasets, determine the factors predicting algal
+blooms in the UCFR. Given that future nutrient mitigations are
+necessary: Estimate how previous nutrient reductions may have influenced
+the pervasiveness of algal blooms in the UCFR. (Claire?) Using climatic
+forecasts, estimate how algal blooms might respond to a warming climate
+under different nutrient scenarios.
+
+\hypertarget{methods}{%
+\subsection{Methods}\label{methods}}
+
+\hypertarget{historical-datasets}{%
+\subsubsection{Historical Datasets:}\label{historical-datasets}}
+
+VNRP data USGS gauge data Statistical analyses: \#\#\# Prior to
+analyses:
+
+How much to include? Glms prior to variable selection.
+
+\hypertarget{variable-selection}{%
+\subsubsection{Variable Selection}\label{variable-selection}}
+
+Groups:
+
+Temporal selection of nutrient datasets.
+
+Total Nitrogen
+
+Total Phosphorous
+
+Phischem variables from VNRP dataset (Temp, pH).
+
+Temperature pH
+
+Variables derived from hydrograph.
+
+Q anomaly: Days since freshet:
+
+Variables:
+
+\hypertarget{results}{%
+\subsection{Results}\label{results}}
+
+\hypertarget{general-patterns-of-main-variables-by-site.-table.}{%
+\subsubsection{General patterns of main variables by site.
+Table.}\label{general-patterns-of-main-variables-by-site.-table.}}
+
+\hypertarget{predicted-vs-observed.-how-to-report-binomial}{%
+\subsubsection{Predicted vs observed. How to report
+binomial?}\label{predicted-vs-observed.-how-to-report-binomial}}
+
+\hypertarget{holdout-deviance-number-of-trees-how-to-report}{%
+\subsubsection{Holdout deviance number of trees: How to
+report?}\label{holdout-deviance-number-of-trees-how-to-report}}
+
+\hypertarget{partial-dependency-plots.-importance-of-variables.}{%
+\subsubsection{Partial dependency plots. Importance of
+variables.}\label{partial-dependency-plots.-importance-of-variables.}}
+
+\hypertarget{fitted-values.-appendix}{%
+\subsubsection{Fitted Values. Appendix?}\label{fitted-values.-appendix}}
+
+\hypertarget{interaction-plots}{%
+\subsubsection{Interaction plots?}\label{interaction-plots}}
+
+\hypertarget{discussion}{%
+\subsection{Discussion}\label{discussion}}
+
+Performance of boosted regression trees.
+
+Main variables that explained peak biomass.
 
 \begin{Shaded}
 \begin{Highlighting}[]

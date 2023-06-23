@@ -11,11 +11,86 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Tentative title: 
+“Forecasting algal blooms in a montane river under multiple stressors: A boosted regression tree approach.”
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Background
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Blooms at the UCFR
+
+Historical monitoring
+
+Historical changes to Nut inputs. Future directions? (Claire) 
+
+Potential changes due to climate change. Freshet has been shown to influence max growth. Temperature has been shown to influence Cladophora metabolism. Timing of freshet, temperature 
+and nutrient availability may have an interplay with secondary cyanobacterial blooms. 
+
+Nonlinear relationships and thresholds are not easily captured by traditional modelling methods, hence Boosted Regression Trees.
+
+One of the strengths of BRTs is the ease to generate predictive models.
+
+## Objectives
+
+Based on the historical datasets, determine the factors predicting algal blooms in the UCFR.
+Given that future nutrient mitigations are necessary:
+Estimate how previous nutrient reductions may have influenced the pervasiveness of algal blooms in the UCFR. (Claire?)
+Using climatic forecasts, estimate how algal blooms might respond to a warming climate under different nutrient scenarios. 
+
+## Methods
+
+### Historical Datasets:
+VNRP data
+USGS gauge data
+Statistical analyses:
+### Prior to analyses:
+
+How much to include? Glms prior to variable selection. 
+
+### Variable Selection 
+
+Groups:
+
+Temporal selection of nutrient datasets. 
+
+Total Nitrogen
+
+Total Phosphorous
+
+Phischem variables from VNRP dataset (Temp, pH).
+
+Temperature
+pH
+
+Variables derived from hydrograph.  
+
+Q anomaly:
+Days since freshet:
+
+Variables: 
+
+## Results
+
+### General patterns of main variables by site. Table. 
+
+### Predicted vs observed. How to report binomial?
+
+### Holdout deviance number of trees: How to report?
+
+### Partial dependency plots. Importance of variables.
+
+### Fitted Values. Appendix?
+### Interaction plots?
+
+## Discussion
+
+Performance of boosted regression trees.
+
+Main variables that explained peak biomass.
+
+
+
+
+
 
 ```{r cars}
 summary(cars)
