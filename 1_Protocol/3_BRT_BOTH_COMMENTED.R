@@ -60,7 +60,7 @@ dev.off()
 
 max.VIF<-2
 
-RED.DATA<-ucfr.data[complete.cases(ucfr.data[ , c(8:18)]),][,c(8:18)]
+RED.DATA<-ucfr.data[complete.cases(ucfr.data[ , c(8:13)]),][,c(8:13)]
 
 VIF.RESULTS<-vif(RED.DATA)
 
@@ -190,6 +190,7 @@ plot(ucfr.data$Chlorophyll.a, UCFR.SS.tc5.lr002$fitted, xlim=c(0.5,3), ylim=c(0.
      font.axis = 2,
      cex.lab=1.5,
      cex.axis=1)
+
 box(lwd=2)
 # Adding vertical and horizontal lines at 2 (100 mg/m2)
 
@@ -248,12 +249,8 @@ table(CHL_DF$name)
 # Plotting partial dependencies
 
 plot_4a<-gbm.plot(UCFR.SS.tc5.lr002, write.title = F, nplots = 8, plot.layout= c(2,3),
-#                  x.label = NULL,
-#                  y.label=c("Fitted function", NA, NA, "Fitted function", NA, NA),
                   las=1,
                   lwd=2,
-                  box=2,
-                  text.font=2,
                   cex.lab=2,
                   cex.axis=1.5,
                   smooth =F,
@@ -269,17 +266,13 @@ dev.off()
 
 
 plot_4b<-gbm.plot(UCFR.BNB.tc4.lr004, write.title = F, nplots = 6, plot.layout= c(2,3),
-                  #                  x.label = NULL,
-                  #                  y.label=c("Fitted function", NA, NA, "Fitted function", NA, NA),
+                  y.label=NA,
                   las=1,
                   lwd=2,
-                  box=2,
-                  text.font=2,
                   cex.lab=2,
                   cex.axis=1.5,
                   smooth =F,
                   rug=F,
-                  y.label = NA
 )
 
 plot_4b <- recordPlot()   
@@ -305,27 +298,6 @@ find.int.BNB$rank.list
 
 # Perspec plots for interactions
 
-gbm.perspec(UCFR.SS.tc5.lr002,3,2, z.range=c(1.4,2.5),
-            theta = 45,
-            phi=45, 
-            perspective = T,
-            smooth=T)
-
-gbm.perspec(UCFR.SS.tc5.lr002,4,3, z.range=c(1.4,2.2),
-            theta = 225,
-            phi=45, 
-            perspective = T,
-            smooth=T)
-
-gbm.perspec(UCFR.BNB.tc4.lr004,3,2, z.range=c(0,1), 
-            theta = 45,
-            phi=45, 
-            perspective = T)
-
-gbm.perspec(UCFR.BNB.tc4.lr004,4,1, z.range=c(0,1), 
-            theta = 315,
-            phi=45, 
-            perspective = T)
 
 png("3_Products/Manuscript_files/FIGURES/Interaction_Plots.png", width = 1154, height = 783, units = "px")
 par(mfrow=c(1,2))

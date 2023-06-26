@@ -99,7 +99,6 @@ knitr::include_graphics("Manuscript_files/FIGURES/Predobs.png")
 ```
 
 
-
 ### Holdout deviance number of trees: How to report?
 
 ```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}

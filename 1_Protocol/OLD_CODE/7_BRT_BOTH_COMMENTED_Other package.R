@@ -5,7 +5,7 @@ library(usdm)
 library(dplyr)
 library(viridis)
 
-ucfr.data <- read.csv("2_Incremental/testlagdata_3.csv")
+ucfr.data <- read.csv("2_Incremental/LAGDATA_CURRENT.csv")
 
 ucfr.data$bloom <- as.integer(ifelse(ucfr.data$Chlorophyll.a > 100, 1, 0))
 ucfr.data$Chlorophyll.a <- log10(ucfr.data$Chlorophyll.a+1)
@@ -68,6 +68,15 @@ plot(gbm1, i.var = 3, n.trees = best.iter)
 plot(gbm1, i.var = 4, n.trees = best.iter)
 plot(gbm1, i.var = 5, n.trees = best.iter)
 plot(gbm1, i.var = 6, n.trees = best.iter)
+
+TEST1 <- read.csv("2_Incremental/PREDICT/TEST1.csv")
+
+data.frame(predict(gbm1, TEST1, n.trees=4000, type = "link"))
+
+
+
+
+
 
 
 
