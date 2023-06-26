@@ -2,7 +2,7 @@ library("stats")
 library("ggplot2")
 library("sjPlot")
 
-ucfr.data <- read.csv("2_Incremental/testlag.csv")
+ucfr.data <- read.csv("2_Incremental/LAGDATA_CURRENT.csv")
 
 names(ucfr.data)
 
@@ -16,7 +16,7 @@ names(ucfr.data)
 
 #26,11,19,27,12,34,29,30### 29,27, 25, 23
 
-DATA<-ucfr.data[,c(3,6,19,19)]
+DATA<-ucfr.data[,c(3,6,16,16)]
 
 DATA[,5]<-(DATA[,3]+DATA[,4])/2
 
@@ -30,7 +30,7 @@ names(GLM.DATA)<-c("Site","Chl","Anomaly")
 
 GLM.DATA$Chl<-log10(GLM.DATA$Chl+1)
 
-GLM.DATA$Anomaly<-log10(GLM.DATA$Anomaly+1)
+#GLM.DATA$Anomaly<-log10(GLM.DATA$Anomaly+1)
 
 glm1<-glm(Chl ~ Site * Anomaly, family = gaussian, GLM.DATA)
 

@@ -2,21 +2,29 @@
 title: "Historical algal blooms in the UCFR"
 author: "Feijo-Lima, Rafael"
 date: "`r Sys.Date()`"
+figsintext : yes
 output: 
   pdf_document:
     keep_tex: true
+    extra_dependencies: ["flafter"]
+    
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8) 
+```
+
 
 ## Tentative title: 
 “Forecasting algal blooms in a montane river under multiple stressors: A boosted regression tree approach.”
 
 ## Background
 
-Blooms at the UCFR
+Algal blooms are everywhere and they are bad. Boooo!
 
-Historical monitoring
+Historic of blooms at the UCFR
 
-Historical changes to Nut inputs. Future directions? (Claire) 
+Historical changes to Nut inputs. Future directions? (Claire). Historical monitoring.
 
 Potential changes due to climate change. Freshet has been shown to influence max growth. Temperature has been shown to influence Cladophora metabolism. Timing of freshet, temperature 
 and nutrient availability may have an interplay with secondary cyanobacterial blooms. 
@@ -29,9 +37,6 @@ One of the strengths of BRTs is the ease to generate predictive models.
 
 Based on the historical datasets, determine the factors predicting algal blooms in the UCFR.
 
-Given that future nutrient mitigations are necessary:
-
- 
 * Given that future nutrient mitigations are necessary:
     + Estimate how previous nutrient reductions may have influenced the pervasiveness of algal blooms in the UCFR. (Claire?)
     + Using climatic forecasts, estimate how algal blooms might respond to a warming climate under different nutrient scenarios.
@@ -40,9 +45,15 @@ Given that future nutrient mitigations are necessary:
 ## Methods
 
 ### Historical Datasets:
+
 VNRP data
+
+
+
 USGS gauge data
+
 Statistical analyses:
+
 ### Prior to analyses:
 
 How much to include? Glms prior to variable selection. 
@@ -60,11 +71,13 @@ Total Phosphorous
 Phischem variables from VNRP dataset (Temp, pH).
 
 Temperature
+
 pH
 
 Variables derived from hydrograph.  
 
 Q anomaly:
+
 Days since freshet:
 
 ## Results
@@ -73,7 +86,9 @@ Days since freshet:
 
 Chlorophyll by site (Log)
 
-![CAPTION](Manuscript_files/FIGURES/test.png)
+```{r, echo=FALSE, fig.cap="A caption", out.width = '60%', fig.align="center"}
+knitr::include_graphics("Manuscript_files/FIGURES/Chla_Boxplots.png")
+```
 
 
 Variance inflation test. 
@@ -84,15 +99,30 @@ knitr::kable(read.csv("Manuscript_files/TABLES/test1.csv"), "simple")
 
 ### Predicted vs observed. How to report binomial?
 
+```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("Manuscript_files/FIGURES/Predobs.png")
+```
+
+
+
 ### Holdout deviance number of trees: How to report?
 
-![CAPTION](Manuscript_files/FIGURES/Holdout_Dev.png)
+```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("Manuscript_files/FIGURES/Holdout_Dev.png")
+```
+
 
 ### Partial dependency plots. Importance of variables.
 
-![CAPTION](Manuscript_files/FIGURES/Part_Dep_SS.png)
 
-![CAPTION](Manuscript_files/FIGURES/Part_Dep_BNB.png)
+```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("Manuscript_files/FIGURES/Part_Dep_SS.png")
+```
+
+
+```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("Manuscript_files/FIGURES/Part_Dep_BNB.png")
+```
 
 ### Fitted Values. Appendix?
 
@@ -100,7 +130,9 @@ knitr::kable(read.csv("Manuscript_files/TABLES/test1.csv"), "simple")
 
 ### Interaction plots?
 
-![CAPTION](Manuscript_files/FIGURES/Interaction_Plots.png)
+```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("Manuscript_files/FIGURES/Interaction_Plots.png")
+```
 
 ## Discussion
 
@@ -108,4 +140,5 @@ Performance of boosted regression trees.
 
 Main variables that explained peak biomass.
 
+Implications of future scenarios...
 

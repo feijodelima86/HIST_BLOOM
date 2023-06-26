@@ -61,6 +61,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{flafter}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -89,11 +90,12 @@ A boosted regression tree approach.''
 \hypertarget{background}{%
 \subsection{Background}\label{background}}
 
-Blooms at the UCFR
+Algal blooms are everywhere and they are bad. Boooo!
 
-Historical monitoring
+Historic of blooms at the UCFR
 
-Historical changes to Nut inputs. Future directions? (Claire)
+Historical changes to Nut inputs. Future directions? (Claire).
+Historical monitoring.
 
 Potential changes due to climate change. Freshet has been shown to
 influence max growth. Temperature has been shown to influence Cladophora
@@ -110,8 +112,6 @@ One of the strengths of BRTs is the ease to generate predictive models.
 
 Based on the historical datasets, determine the factors predicting algal
 blooms in the UCFR.
-
-Given that future nutrient mitigations are necessary:
 
 \begin{itemize}
 \tightlist
@@ -135,8 +135,14 @@ Given that future nutrient mitigations are necessary:
 \hypertarget{historical-datasets}{%
 \subsubsection{Historical Datasets:}\label{historical-datasets}}
 
-VNRP data USGS gauge data Statistical analyses: \#\#\# Prior to
-analyses:
+VNRP data
+
+USGS gauge data
+
+Statistical analyses:
+
+\hypertarget{prior-to-analyses}{%
+\subsubsection{Prior to analyses:}\label{prior-to-analyses}}
 
 How much to include? Glms prior to variable selection.
 
@@ -153,11 +159,15 @@ Total Phosphorous
 
 Phischem variables from VNRP dataset (Temp, pH).
 
-Temperature pH
+Temperature
+
+pH
 
 Variables derived from hydrograph.
 
-Q anomaly: Days since freshet:
+Q anomaly:
+
+Days since freshet:
 
 \hypertarget{results}{%
 \subsection{Results}\label{results}}
@@ -169,9 +179,12 @@ Table.}\label{general-patterns-of-main-variables-by-site.-table.}}
 Chlorophyll by site (Log)
 
 \begin{figure}
-\centering
-\includegraphics{Manuscript_files/FIGURES/test.png}
-\caption{CAPTION}
+
+{\centering \includegraphics[width=0.6\linewidth]{Manuscript_files/FIGURES/Chla_Boxplots} 
+
+}
+
+\caption{A caption}\label{fig:unnamed-chunk-1}
 \end{figure}
 
 Variance inflation test.
@@ -194,14 +207,16 @@ X & Variables & VIF \\
 \subsubsection{Predicted vs observed. How to report
 binomial?}\label{predicted-vs-observed.-how-to-report-binomial}}
 
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Predobs} \caption{A caption}\label{fig:unnamed-chunk-2}
+\end{figure}
+
 \hypertarget{holdout-deviance-number-of-trees-how-to-report}{%
 \subsubsection{Holdout deviance number of trees: How to
 report?}\label{holdout-deviance-number-of-trees-how-to-report}}
 
 \begin{figure}
-\centering
-\includegraphics{Manuscript_files/FIGURES/Holdout_Dev.png}
-\caption{CAPTION}
+\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Holdout_Dev} \caption{A caption}\label{fig:unnamed-chunk-3}
 \end{figure}
 
 \hypertarget{partial-dependency-plots.-importance-of-variables.}{%
@@ -209,15 +224,11 @@ report?}\label{holdout-deviance-number-of-trees-how-to-report}}
 variables.}\label{partial-dependency-plots.-importance-of-variables.}}
 
 \begin{figure}
-\centering
-\includegraphics{Manuscript_files/FIGURES/Part_Dep_SS.png}
-\caption{CAPTION}
+\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Part_Dep_SS} \caption{A caption}\label{fig:unnamed-chunk-4}
 \end{figure}
 
 \begin{figure}
-\centering
-\includegraphics{Manuscript_files/FIGURES/Part_Dep_BNB.png}
-\caption{CAPTION}
+\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Part_Dep_BNB} \caption{A caption}\label{fig:unnamed-chunk-5}
 \end{figure}
 
 \hypertarget{fitted-values.-appendix}{%
@@ -227,9 +238,7 @@ variables.}\label{partial-dependency-plots.-importance-of-variables.}}
 \subsubsection{Interaction plots?}\label{interaction-plots}}
 
 \begin{figure}
-\centering
-\includegraphics{Manuscript_files/FIGURES/Interaction_Plots.png}
-\caption{CAPTION}
+\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Interaction_Plots} \caption{A caption}\label{fig:unnamed-chunk-6}
 \end{figure}
 
 \hypertarget{discussion}{%
@@ -238,5 +247,7 @@ variables.}\label{partial-dependency-plots.-importance-of-variables.}}
 Performance of boosted regression trees.
 
 Main variables that explained peak biomass.
+
+Implications of future scenarios\ldots{}
 
 \end{document}

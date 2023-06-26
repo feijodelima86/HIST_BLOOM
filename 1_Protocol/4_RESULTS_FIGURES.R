@@ -5,8 +5,6 @@ ucfr.data <- read.csv("2_Incremental/LAGDATA_CURRENT.csv")
 
 #### Boxplot of chlorophyll by site ####
 
-ucfr.data$Chlorophyll.a <- log10(ucfr.data$Chlorophyll.a+1)
-
 names(ucfr.data)
 
 as.factor(ucfr.data$Site.1)
