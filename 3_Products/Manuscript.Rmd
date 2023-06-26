@@ -6,14 +6,11 @@ figsintext : yes
 output: 
   pdf_document:
     keep_tex: true
+    includes:  
+      in_header: my_header.tex
     extra_dependencies: ["flafter"]
     
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.width=12, fig.height=8) 
-```
-
 
 ## Tentative title: 
 “Forecasting algal blooms in a montane river under multiple stressors: A boosted regression tree approach.”
@@ -47,8 +44,6 @@ Based on the historical datasets, determine the factors predicting algal blooms 
 ### Historical Datasets:
 
 VNRP data
-
-
 
 USGS gauge data
 
@@ -86,7 +81,7 @@ Days since freshet:
 
 Chlorophyll by site (Log)
 
-```{r, echo=FALSE, fig.cap="A caption", out.width = '60%', fig.align="center"}
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%', fig.align="center"}
 knitr::include_graphics("Manuscript_files/FIGURES/Chla_Boxplots.png")
 ```
 
@@ -99,7 +94,7 @@ knitr::kable(read.csv("Manuscript_files/TABLES/test1.csv"), "simple")
 
 ### Predicted vs observed. How to report binomial?
 
-```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}
 knitr::include_graphics("Manuscript_files/FIGURES/Predobs.png")
 ```
 
@@ -107,7 +102,7 @@ knitr::include_graphics("Manuscript_files/FIGURES/Predobs.png")
 
 ### Holdout deviance number of trees: How to report?
 
-```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}
 knitr::include_graphics("Manuscript_files/FIGURES/Holdout_Dev.png")
 ```
 
@@ -115,12 +110,12 @@ knitr::include_graphics("Manuscript_files/FIGURES/Holdout_Dev.png")
 ### Partial dependency plots. Importance of variables.
 
 
-```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}
 knitr::include_graphics("Manuscript_files/FIGURES/Part_Dep_SS.png")
 ```
 
 
-```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}
 knitr::include_graphics("Manuscript_files/FIGURES/Part_Dep_BNB.png")
 ```
 
@@ -130,7 +125,7 @@ knitr::include_graphics("Manuscript_files/FIGURES/Part_Dep_BNB.png")
 
 ### Interaction plots?
 
-```{r, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+```{r, echo=FALSE, fig.cap="A caption", out.width = '100%'}
 knitr::include_graphics("Manuscript_files/FIGURES/Interaction_Plots.png")
 ```
 

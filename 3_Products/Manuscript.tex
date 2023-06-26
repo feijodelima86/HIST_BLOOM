@@ -61,6 +61,14 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
 \usepackage{flafter}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
@@ -76,7 +84,7 @@
 
 \title{Historical algal blooms in the UCFR}
 \author{Feijo-Lima, Rafael}
-\date{2023-06-23}
+\date{2023-06-26}
 
 \begin{document}
 \maketitle
@@ -180,7 +188,7 @@ Chlorophyll by site (Log)
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.6\linewidth]{Manuscript_files/FIGURES/Chla_Boxplots} 
+{\centering \includegraphics[width=1\linewidth]{Manuscript_files/FIGURES/Chla_Boxplots} 
 
 }
 
@@ -194,12 +202,13 @@ Variance inflation test.
 X & Variables & VIF \\
 \midrule()
 \endhead
-1 & Temperature.oC & 1.252438 \\
-2 & pH & 1.135731 \\
-3 & TN.ug.l & 1.593165 \\
-4 & TP.ug.l & 1.402433 \\
-5 & Q.Anomaly & 1.110009 \\
-6 & Days.Since.Freshet & 1.107505 \\
+1 & Temperature.oC & 1.235585 \\
+2 & pH & 1.170190 \\
+3 & TP.ug.l & 1.182521 \\
+4 & Q.Anomaly & 1.088207 \\
+5 & Days.Since.Freshet & 1.124810 \\
+6 & Nitrate\ldots Nitrite.y & 1.140407 \\
+7 & P\_.\_Diss & 1.064185 \\
 \bottomrule()
 \end{longtable}
 
@@ -208,7 +217,7 @@ X & Variables & VIF \\
 binomial?}\label{predicted-vs-observed.-how-to-report-binomial}}
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Predobs} \caption{A caption}\label{fig:unnamed-chunk-2}
+\includegraphics[width=1\linewidth]{Manuscript_files/FIGURES/Predobs} \caption{A caption}\label{fig:unnamed-chunk-2}
 \end{figure}
 
 \hypertarget{holdout-deviance-number-of-trees-how-to-report}{%
@@ -216,7 +225,7 @@ binomial?}\label{predicted-vs-observed.-how-to-report-binomial}}
 report?}\label{holdout-deviance-number-of-trees-how-to-report}}
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Holdout_Dev} \caption{A caption}\label{fig:unnamed-chunk-3}
+\includegraphics[width=1\linewidth]{Manuscript_files/FIGURES/Holdout_Dev} \caption{A caption}\label{fig:unnamed-chunk-3}
 \end{figure}
 
 \hypertarget{partial-dependency-plots.-importance-of-variables.}{%
@@ -224,11 +233,11 @@ report?}\label{holdout-deviance-number-of-trees-how-to-report}}
 variables.}\label{partial-dependency-plots.-importance-of-variables.}}
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Part_Dep_SS} \caption{A caption}\label{fig:unnamed-chunk-4}
+\includegraphics[width=1\linewidth]{Manuscript_files/FIGURES/Part_Dep_SS} \caption{A caption}\label{fig:unnamed-chunk-4}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Part_Dep_BNB} \caption{A caption}\label{fig:unnamed-chunk-5}
+\includegraphics[width=1\linewidth]{Manuscript_files/FIGURES/Part_Dep_BNB} \caption{A caption}\label{fig:unnamed-chunk-5}
 \end{figure}
 
 \hypertarget{fitted-values.-appendix}{%
@@ -238,7 +247,7 @@ variables.}\label{partial-dependency-plots.-importance-of-variables.}}
 \subsubsection{Interaction plots?}\label{interaction-plots}}
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{Manuscript_files/FIGURES/Interaction_Plots} \caption{A caption}\label{fig:unnamed-chunk-6}
+\includegraphics[width=1\linewidth]{Manuscript_files/FIGURES/Interaction_Plots} \caption{A caption}\label{fig:unnamed-chunk-6}
 \end{figure}
 
 \hypertarget{discussion}{%
