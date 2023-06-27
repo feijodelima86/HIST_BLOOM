@@ -13,7 +13,8 @@ output:
 ---
 
 ## Tentative title: 
-“Forecasting algal blooms in a montane river under multiple stressors: A boosted regression tree approach.”
+
+“Forecasting (mid summer) algal blooms in a montane river under multiple stressors: A boosted regression tree approach.”
 
 ## Background
 
@@ -78,6 +79,10 @@ Days since freshet:
 ## Results
 
 ### General patterns of main variables by site. Table. 
+
+```{r print.table, test, echo=FALSE, message=FALSE, warning=FALSE} 
+knitr::kable(read.csv("Manuscript_files/TABLES/varsum.csv"), "simple")
+```
 
 Chlorophyll by site (Log)
 

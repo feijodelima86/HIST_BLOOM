@@ -71,5 +71,7 @@ UCFR.BNB.tc4.lr004 <- gbm.step(data=ucfr.data,
                                bag.fraction = 0.75)
 
 
+TEST1 <- read.csv("2_Incremental/PREDICT/TEST1.csv")
 
+data.frame(predict(UCFR.BNB.tc4.lr004, TEST1, n.trees=4000, type="response"))
 

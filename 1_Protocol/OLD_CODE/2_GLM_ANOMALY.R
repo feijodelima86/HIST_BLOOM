@@ -10,12 +10,24 @@ ucfr.data$ActivityStartDate<-as.Date(ucfr.data$ActivityStartDate, "%m/%d/%Y")
 
 ucfr.data$Time <- as.integer(ucfr.data$ActivityStartDate - as.Date("2008-01-01"))
 
+# Log Transform for dependent variables (CHLa and Weight)
+
+ucfr.data$Chlorophyll.a <- log10(ucfr.data$Chlorophyll.a+1)
+ucfr.data$Weight <- log10(ucfr.data$Weight)
+
+# Log Transforms for independent variables
+
+ucfr.data$Temperature.oC  <- log10(ucfr.data$Temperature.oC+1)
+ucfr.data$TN.ug.l  <- log10(ucfr.data$TN.ug.l+1)
+ucfr.data$TP.ug.l  <- log10(ucfr.data$TP.ug.l+1)
+ucfr.data$Days.Since.Freshet  <- log10(ucfr.data$Days.Since.Freshet+1)
+
 #26,11,19,27,12,34,29,30
 
 
 names(ucfr.data)
 
-GLM.DATA<-ucfr.data[complete.cases(ucfr.data[ , c(3,19,13)]),][,c(3,19,13)]
+GLM.DATA<-ucfr.data[complete.cases(ucfr.data[ , c(3,12,10)]),][,c(3,12,10)]
 
 #GLM.DATA <- droplevels(GLM.DATA[!GLM.DATA$Site == c('HU','MS','BM','FH')])
 

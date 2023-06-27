@@ -69,9 +69,7 @@ plot(gbm1, i.var = 4, n.trees = best.iter)
 plot(gbm1, i.var = 5, n.trees = best.iter)
 plot(gbm1, i.var = 6, n.trees = best.iter)
 
-TEST1 <- read.csv("2_Incremental/PREDICT/TEST1.csv")
 
-data.frame(predict(gbm1, TEST1, n.trees=4000, type = "link"))
 
 
 
