@@ -298,7 +298,7 @@ find.int.BNB$rank.list
 
 # Perspec plots for interactions
 
-
+dev.new()
 png("3_Products/Manuscript_files/FIGURES/Interaction_Plots.png", width = 1154, height = 783, units = "px")
 par(mfrow=c(1,2))
 gbm.perspec(UCFR.SS.tc5.lr002,3,2, z.range=c(1.4,2.5),
