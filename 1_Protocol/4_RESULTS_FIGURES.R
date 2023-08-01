@@ -28,3 +28,4 @@ dev.off()
 #### Variance inflation test results for predictor variables ####
 
 Table_1<-knitr::kable(read.csv("3_Products/Manuscript_files/TABLES/test1.csv"), "simple")
+
