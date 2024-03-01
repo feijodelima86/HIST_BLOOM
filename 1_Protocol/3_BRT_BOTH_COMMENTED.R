@@ -192,6 +192,7 @@ plot(ucfr.data$Chlorophyll.a, UCFR.SS.tc5.lr002$fitted, xlim=c(0.5,3), ylim=c(0.
      cex.axis=1)
 
 box(lwd=2)
+
 # Adding vertical and horizontal lines at 2 (100 mg/m2)
 
 abline(v=2)

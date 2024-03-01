@@ -20,4 +20,3 @@ anomaly$anomaly<-abs(anomaly$Q_CFS.x/anomaly$Q_CFS.y)^(1/3)
 write.csv(DL_1,"2_Incremental/USGS_ALL_YEAR_Q.csv")
 write.csv(DL_2,"2_Incremental/USGS_DL_YEAR_Q.csv")
 write.csv(anomaly,"2_Incremental/ANOMALY_Q.csv")
-

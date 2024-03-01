@@ -1,7 +1,7 @@
 library(readr)
 
-VNRP_DATA<- read_csv("2_Incremental/vnrp_data_redux_2.csv")
-USGS_ALL_YEAR_Q <- read_csv("2_Incremental/ANOMALY_Q.csv")
+VNRP_DATA<- read_csv("2_Incremental/OLD_DATA/vnrp_data_redux_2.csv")
+USGS_ALL_YEAR_Q <- read_csv("2_Incremental/OLD_DATA/ANOMALY_Q.csv")
 
 test_merge<-merge(x = VNRP_DATA, y = USGS_ALL_YEAR_Q, by = c("Year","Site"), all = TRUE)
 
