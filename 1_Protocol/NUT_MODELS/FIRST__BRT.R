@@ -53,8 +53,8 @@ summary(predfit.N)
 par(mfrow=c(1,1))
 
 plot(N.BRT$Total.Nitrogen..mixed.forms, UCFR.TN$fitted, 
-#     xlim=c(2,2.7), 
-#     ylim=c(2,2.7), 
+     xlim=c(2,2.8), 
+     ylim=c(2,2.8), 
      col=N.BRT$Site, 
      xlab="Obs", 
      ylab="Fitted Values", 
@@ -125,7 +125,7 @@ P.BRT$Q_CFS.x <- P.BRT$Q_CFS.x^(1/9)
 colnames(P.BRT)  
 
 UCFR.TP <- gbm.step(data=P.BRT, 
-                    gbm.x = c(3,4,7,8),
+                    gbm.x = c(3,5,7,8),
                     gbm.y = 24,
                     family = "gaussian",
                     tree.complexity = 4,
@@ -161,7 +161,7 @@ box(lwd=2)
 
 # Plotting partial dependencies
 
-gbm.plot(UCFR.TP, write.title = F, nplots = 8, plot.layout= c(2,3),
+gbm.plot(UCFR.TP, write.title = F, nplots = 8, plot.layout= c(2,2),
          las=1,
          lwd=2,
          cex.lab=2,

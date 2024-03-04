@@ -32,11 +32,12 @@ ucfr.data$AFDM <- log10(ucfr.data$AFDM)
 
 names(ucfr.data)
 
+
+ucfr.data$Days.Since.Freshet  <- log10(ucfr.data$Days.Since.Freshet+1)
 ucfr.data$Temp_oC  <- log10(ucfr.data$Temp_oC+1)
 ucfr.data$TN_mg_L  <- log10(ucfr.data$TN_mg_L*1000+1)
 ucfr.data$TP_mg_L  <- log10(ucfr.data$TP_mg_L*1000+1)
 #ucfr.data$Days_Since_Freshet  <- log10(ucfr.data$Days_Since_Freshet+1)
-
 
 
 #### Boxplot of chlorophyll by site ####
@@ -64,6 +65,28 @@ boxplot(CHLa ~ Site, ucfr.data,
 )
 box(lwd=2)
 
+boxplot(TN_mg_L ~ Site, ucfr.data,                              
+        ylab = expression(log[10] ~ "TN" ~ (mg/L)),
+        text.font=2,
+        font.axis = 2,
+        xlab=NULL,
+        las=1,
+        cex.lab=1,
+        cex.axis=0.75
+)
+box(lwd=2)
+
+boxplot(TP_mg_L ~ Site, ucfr.data,                              
+        ylab = expression(log[10] ~ "TP" ~ (mg/L)),
+        text.font=2,
+        font.axis = 2,
+        xlab=NULL,
+        las=1,
+        cex.lab=1,
+        cex.axis=0.75
+)
+box(lwd=2)
+
 
 # Performing Boosted regression trees.  
 
@@ -73,12 +96,12 @@ box(lwd=2)
 names(ucfr.data)
 
 UCFR.SS.tc5.lr002 <- gbm.step(data=ucfr.data, 
-                           gbm.x = c(12,11,17,9,16),
+                           gbm.x = c(12,11,17,9,16,21),
                            gbm.y = 19,
                            family = "gaussian",
-                           tree.complexity = 5,
+                           tree.complexity = 4,
                            learning.rate = 0.002,
-                           bag.fraction = 0.9
+                           bag.fraction = 0.3
                            )
 
 
@@ -142,7 +165,7 @@ abline(h=2)
 
 # Plotting partial dependencies
 
-plot_4a<-gbm.plot(UCFR.SS.tc5.lr002, write.title = F, nplots = 8, plot.layout= c(3,2),
+plot_4a<-gbm.plot(UCFR.SS.tc5.lr002, write.title = F, nplots = 8, plot.layout= c(3,3),
                   las=1,
                   lwd=2,
                   cex.lab=2,
